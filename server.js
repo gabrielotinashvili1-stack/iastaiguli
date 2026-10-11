@@ -16,7 +16,7 @@ if (!JWT_SECRET) {
 
 // 1) პროდუქტები და ფასები სერვერზე ინახება. კლიენტის გამოგზავნილ ფასს არასდროს ვენდობით!
 const PRODUCTS = {};
-for (let i = 1; i <= 6; i++) PRODUCTS[`bouquet-${i}`] = { name: `თაიგული ${i}`, price: 35 };
+for (let i = 1; i <= 9; i++) PRODUCTS[`bouquet-${i}`] = { name: `თაიგული ${i}`, price: 35 };
 
 // 2) მონაცემთა ბაზა (ერთი ფაილი: shop.db)
 const db = new Database(path.join(__dirname, "shop.db"));
