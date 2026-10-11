@@ -149,3 +149,43 @@ document.querySelectorAll(".add-cart").forEach(button => {
 
 // კალათის საზონდარო ბეჯის განახლება ყოველ გვერდზე ჩატვირთვისას
 updateCartBadge();
+
+// --- Dark mode ---
+
+const THEME_KEY = "theme";
+
+function initThemeToggle() {
+    const nav = document.querySelector(".nav");
+    if (!nav) return;
+
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "theme-toggle";
+
+    function setTheme(isDark) {
+        document.body.classList.toggle("dark-mode", isDark);
+        toggle.setAttribute("aria-pressed", String(isDark));
+        toggle.textContent = isDark ? "☀️ ღია რეჟიმი" : "🌙 მუქი რეჟიმი";
+
+        try {
+            localStorage.setItem(THEME_KEY, isDark ? "dark" : "light");
+        } catch (error) {
+            console.error("თემის პარამეტრის შენახვა ვერ მოხერხდა:", error);
+        }
+    }
+
+    let isDark = false;
+    try {
+        isDark = localStorage.getItem(THEME_KEY) === "dark";
+    } catch (error) {
+        console.error("თემის პარამეტრის წაკითხვა ვერ მოხერხდა:", error);
+    }
+
+    document.body.classList.toggle("dark-mode", isDark);
+    toggle.setAttribute("aria-pressed", String(isDark));
+    toggle.textContent = isDark ? "☀️ ღია რეჟიმი" : "🌙 მუქი რეჟიმი";
+    toggle.addEventListener("click", () => setTheme(!document.body.classList.contains("dark-mode")));
+    nav.appendChild(toggle);
+}
+
+initThemeToggle();

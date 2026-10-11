@@ -192,6 +192,24 @@ button {
   transition: background 0.2s ease, transform 0.15s ease;
 }
 
+.theme-toggle {
+  margin-left: auto;
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+
+.theme-toggle:hover {
+  background: #f3e4e8;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
 .add-cart,
 #checkout-btn {
   background: var(--color-primary);
@@ -388,5 +406,62 @@ footer {
     flex-direction: column;
     gap: 10px;
     text-align: center;
+  }
+}
+
+/* ---------- Dark mode ---------- */
+
+body.dark-mode {
+  --color-bg: #211b1c;
+  --color-surface: #302829;
+  --color-primary: #c96f84;
+  --color-primary-dark: #f0a4b5;
+  --color-accent: #779b71;
+  --color-text: #f5e9e7;
+  --color-text-muted: #c0aeb0;
+  --color-border: #514346;
+  --shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
+  --shadow-hover: 0 14px 32px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+body.dark-mode .nav a:hover,
+body.dark-mode .theme-toggle:hover {
+  background: #49383c;
+}
+
+body.dark-mode #clear-cart:hover,
+body.dark-mode .qty-controls button {
+  background: #49383c;
+  color: var(--color-text);
+}
+
+body.dark-mode .img-wrap {
+  background: linear-gradient(135deg, #49383c, #344034);
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  color: var(--color-text);
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+body.dark-mode .order-summary,
+body.dark-mode .order-card,
+body.dark-mode .confirm-box {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+@media (max-width: 600px) {
+  .theme-toggle {
+    margin-left: 0;
   }
 }
