@@ -162,11 +162,15 @@ function initThemeToggle() {
     toggle.type = "button";
     toggle.className = "theme-toggle";
 
-    function setTheme(isDark) {
+    function applyTheme(isDark) {
         document.body.classList.toggle("dark-mode", isDark);
         toggle.setAttribute("aria-pressed", String(isDark));
         toggle.textContent = isDark ? "☀️ ღია რეჟიმი" : "🌙 მუქი რეჟიმი";
+        toggle.setAttribute("aria-label", isDark ? "ღია რეჟიმზე გადართვა" : "მუქ რეჟიმზე გადართვა");
+    }
 
+    function setTheme(isDark) {
+        applyTheme(isDark);
         try {
             localStorage.setItem(THEME_KEY, isDark ? "dark" : "light");
         } catch (error) {
@@ -181,9 +185,7 @@ function initThemeToggle() {
         console.error("თემის პარამეტრის წაკითხვა ვერ მოხერხდა:", error);
     }
 
-    document.body.classList.toggle("dark-mode", isDark);
-    toggle.setAttribute("aria-pressed", String(isDark));
-    toggle.textContent = isDark ? "☀️ ღია რეჟიმი" : "🌙 მუქი რეჟიმი";
+    applyTheme(isDark);
     toggle.addEventListener("click", () => setTheme(!document.body.classList.contains("dark-mode")));
     nav.appendChild(toggle);
 }
