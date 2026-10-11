@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>შეკვეთის გაფორმება | ia's თაიგული</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-links">
+            <a href="index.html">მთავარი</a>
+            <a href="kalata.html">კალათა <span id="cart-count" class="cart-badge">0</span></a>
+        </div>
+        <div class="nav-auth" id="nav-auth"></div>
+    </nav>
+
+    <header>
+        <h2>შეკვეთის გაფორმება</h2>
+        <svg class="flourish" viewBox="0 0 120 14" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 7 Q30 -3 60 7 T118 7" stroke="#b5566b" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+        <p>რამდენიმე დეტალი დარჩა — სად და როდის მიგიტანოთ თაიგული</p>
+    </header>
+
+    <div class="checkout-wrap" id="checkout-root">
+        <form id="checkout-form" class="auth-form checkout-form" novalidate>
+            <div class="form-section">
+                <h3 class="form-section-title">საკონტაქტო ინფორმაცია</h3>
+                <div class="form-grid">
+                    <label>სახელი <input type="text" id="co-name" autocomplete="name" required></label>
+                    <label>ტელეფონი <input type="tel" id="co-phone" autocomplete="tel" placeholder="5XX XXX XXX" required></label>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3 class="form-section-title">მიწოდება</h3>
+                <label>მისამართი <input type="text" id="co-address" autocomplete="street-address" placeholder="ქუჩა, ბინის ნომერი, რაიონი" required></label>
+                <div class="form-grid">
+                    <label>თარიღი <input type="date" id="co-date" required></label>
+                    <label>სასურველი დრო <span class="optional-tag">არასავალდებულო</span> <input type="time" id="co-time"></label>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3 class="form-section-title">დამატებითი დეტალები</h3>
+                <label>ბარათის ტექსტი <span class="optional-tag">არასავალდებულო</span> <textarea id="co-card" rows="2" placeholder="მაგ. გილოცავ დაბადების დღეს!"></textarea></label>
+                <label>კომენტარი კურიერისთვის <span class="optional-tag">არასავალდებულო</span> <textarea id="co-note" rows="2" placeholder="მაგ. დარეკეთ კართან მისვლისას"></textarea></label>
+            </div>
+
+            <p class="auth-error" id="co-error"></p>
+            <button type="submit">შეკვეთის დადასტურება</button>
+        </form>
+
+        <aside class="order-summary" id="order-summary"></aside>
+    </div>
+
+    <footer>&copy; 2026 ia's თაიგული</footer>
+
+    <script src="auth.js"></script>
+    <script src="main.js"></script>
+    <script src="config.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html>

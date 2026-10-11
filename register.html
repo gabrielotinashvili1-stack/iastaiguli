@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>რეგისტრაცია | ia's თაიგული</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-links">
+            <a href="index.html">მთავარი</a>
+            <a href="kalata.html">კალათა <span id="cart-count" class="cart-badge">0</span></a>
+        </div>
+        <div class="nav-auth" id="nav-auth"></div>
+    </nav>
+
+    <header>
+        <h2>რეგისტრაცია</h2>
+        <p>შექმენით ანგარიში, რომ შეკვეთები უფრო მარტივად გააკეთოთ</p>
+    </header>
+
+    <div class="auth-wrap">
+        <p class="auth-note" id="redirect-note" hidden>შეკვეთის დასასრულებლად საჭიროა ანგარიშის შექმნა — კალათა შენარჩუნებული დარჩება.</p>
+        <form id="register-form" class="auth-form" novalidate>
+            <label>
+                სახელი
+                <input type="text" id="reg-name" autocomplete="name" required>
+            </label>
+            <label>
+                ელფოსტა
+                <input type="email" id="reg-email" autocomplete="email" required>
+            </label>
+            <label>
+                პაროლი
+                <input type="password" id="reg-password" autocomplete="new-password" required minlength="6">
+            </label>
+            <label>
+                გაიმეორეთ პაროლი
+                <input type="password" id="reg-confirm" autocomplete="new-password" required minlength="6">
+            </label>
+            <p class="auth-error" id="register-error"></p>
+            <button type="submit">რეგისტრაცია</button>
+        </form>
+        <p class="auth-switch">უკვე გაქვთ ანგარიში? <a href="login.html">შედით</a></p>
+    </div>
+
+    <footer>&copy; 2026 ia's თაიგული</footer>
+
+    <script src="auth.js"></script>
+    <script src="main.js"></script>
+    <script src="register.js"></script>
+</body>
+</html>
